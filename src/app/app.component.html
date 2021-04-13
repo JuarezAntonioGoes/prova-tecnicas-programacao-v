@@ -1,3 +1,5 @@
+<h1>Formulário</h1>
+
 <form #userForm="ngForm" (ngSubmit)="saveData(userForm)">
   <label for="palavra">Palavra:</label>
   <input
@@ -21,3 +23,20 @@
 
   <input type="submit" value="Salvar" />
 </form>
+
+<div *ngIf="palavras.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>Palavra</th>
+        <th>Significado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let plv of palavras">
+        <td>{{ plv.palavra }}</td>
+        <td>{{ plv.significado }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

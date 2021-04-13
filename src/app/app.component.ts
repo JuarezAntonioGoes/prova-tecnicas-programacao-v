@@ -1,6 +1,4 @@
 import { Component, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import { Palavra } from './palavra';
 
 @Component({
@@ -13,6 +11,21 @@ export class AppComponent {
   palavras: Palavra[] = [];
 
   saveData(form) {
-    console.log(form);
+    const isRepeat = this.verifyRepeat();
+
+    if (isRepeat) {
+      return;
+    }
+
+    this.palavras.push(this.palavra);
+    this.palavra = new Palavra();
+  }
+
+  verifyRepeat() {
+    const verifyRepeat = this.palavras.map(
+      (plv) => plv.palavra === this.palavra.palavra
+    );
+
+    return verifyRepeat;
   }
 }
