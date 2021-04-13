@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { Palavra } from './palavra';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'prova1-tec5';
+  palavra: Palavra = new Palavra();
+  palavras: Palavra[] = [];
+
+  saveData(form) {
+    console.log(form);
+  }
 }
